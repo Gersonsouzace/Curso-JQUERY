@@ -16,8 +16,8 @@ function fraseAleatoria() {
 }
 
 function trocaFraseAleatoria(data) {
-    var frase = $(".frase");
-    var numeroAleatorio = Math.floor(Math.random() * data.length);
+    let frase = $(".frase");
+    let numeroAleatorio = Math.floor(Math.random() * data.length);
 
     frase.text(data[numeroAleatorio].texto);
     atualizaTamanhoFrase();
@@ -28,10 +28,10 @@ function trocaFraseAleatoria(data) {
 function buscaFrase() {
 
     $("#spinner").toggle();
-    var fraseId = $("#frase-id").val();
+    let fraseId = $("#frase-id").val();
 
     //criacao do objeto JS que guarda a id
-    var dados = {id : fraseId}; 
+    let dados = {id : fraseId}; 
 
     //passando objecto como segundo parametro
     $.get("http://localhost:3000/frases", dados, trocaFrase)
@@ -50,7 +50,7 @@ function trocaFrase(data) {
 
     console.log(data);
 
-    var frase = $(".frase");
+    let frase = $(".frase");
     frase.text(data.texto); //cuidado, texto com "o" no final 
     atualizaTamanhoFrase();
     atualizaTempoInicial(data.tempo);

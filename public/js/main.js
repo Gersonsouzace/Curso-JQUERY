@@ -1,5 +1,5 @@
-var tempoInicial = $("#tempo-digitacao").text();
-var campo = $(".campo-digitacao");
+let tempoInicial = $("#tempo-digitacao").text();
+let campo = $(".campo-digitacao");
 
 $(function() {
     atualizaTamanhoFrase();
@@ -25,30 +25,30 @@ function atualizaTempoInicial(tempo) {
 }
 
 function atualizaTamanhoFrase() {
-    var frase = $(".frase").text();
-    var numPalavras  = frase.split(" ").length;
-    var tamanhoFrase = $("#tamanho-frase");
+    let frase = $(".frase").text();
+    let numPalavras  = frase.split(" ").length;
+    let tamanhoFrase = $("#tamanho-frase");
 
     tamanhoFrase.text(numPalavras);
 }
 
 function inicializaContadores() {
     campo.on("input", function() {
-        var conteudo = campo.val();
+        let conteudo = campo.val();
 
-        var qtdPalavras = conteudo.split(/\S+/).length - 1;
+        let qtdPalavras = conteudo.split(/\S+/).length - 1;
         $("#contador-palavras").text(qtdPalavras);
 
-        var qtdCaracteres = conteudo.length;
+        let qtdCaracteres = conteudo.length;
         $("#contador-caracteres").text(qtdCaracteres);
     });
 }
 
 function inicializaMarcadores() {
     campo.on("input", function() {
-        var frase = $(".frase").text();
-        var digitado = campo.val();
-        var comparavel = frase.substr(0, digitado.length);
+        let frase = $(".frase").text();
+        let digitado = campo.val();
+        let comparavel = frase.substr(0, digitado.length);
 
         if (digitado == comparavel) {
             campo.addClass("borda-verde");
@@ -62,8 +62,8 @@ function inicializaMarcadores() {
 
 function inicializaCronometro() {
     campo.one("focus", function() {
-        var tempoRestante = $("#tempo-digitacao").text();
-    	var cronometroID = setInterval(function() {
+        let tempoRestante = $("#tempo-digitacao").text();
+    	let cronometroID = setInterval(function() {
     		tempoRestante--;
     		$("#tempo-digitacao").text(tempoRestante);
     		if (tempoRestante < 1) {
